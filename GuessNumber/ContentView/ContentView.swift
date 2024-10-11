@@ -14,12 +14,18 @@ struct ContentView: View {
     
     var body: some View {
         VStack(spacing: 30) {
-            TextView(targetValue: contentViewVM.targetValue)
+            Text("Подвиньте слайдер, как можно ближе к: \(contentViewVM.targetValue)")
             
-            UISliderRepresentation(
-                currentValue: $contentViewVM.currentValue,
-                thumbSliderAlpha: contentViewVM.alphaComponent
-            )
+            HStack {
+                Text("0")
+                
+                UISliderRepresentation(
+                    currentValue: $contentViewVM.currentValue,
+                    thumbSliderAlpha: contentViewVM.alphaComponent
+                )
+                
+                Text("100")
+            }
             
             ButtonView(
                 title: "Проверь меня!",
